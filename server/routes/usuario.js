@@ -1,6 +1,7 @@
 ﻿const express = require('express');
 const app = express();
 const Usuario = require('../models/usuario');
+const bcrypt = require('bcryptjs');
 
 const { validateBody } = require('../middlewares/generalValidators');
 
