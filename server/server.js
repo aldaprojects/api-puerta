@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+console.log(process.env.URL_DB);
 // Conexion con la base de datos
 mongoose.connect(process.env.URL_DB, 
     {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, 
@@ -23,6 +24,11 @@ mongoose.connect(process.env.URL_DB,
         console.log('Base de datos online');
     }
 );
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 // Configuracion global de las rutas
 app.use( require('./routes/index') );

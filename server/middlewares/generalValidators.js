@@ -4,7 +4,7 @@ let validateBody = ( req, res, next ) => {
 
     let body = req.body;
 
-    if ( body != undefined || !body) {
+    if ( Object.keys(body).length > 0 ) {
         next();
     } else {
         return res.status(400).json({
@@ -12,33 +12,10 @@ let validateBody = ( req, res, next ) => {
             errors: {
                 message: 'El body no debe estar vacio'
             }
-        })
-    }
-
-}
-
-let validateBodyLogin = ( req, res, next ) => {
-    
-    let body = req.body;
-    let errors = [];
-
-    if ( !body.email ) {
-        errors.push(`Debe incluir el campo 'email'`);
-    }
-    if ( !body.password ) {
-        errors.push(`Debe incluir el campo 'password'`);
-    }
-
-    if ( errors.length > 0 ) {
-        return res.status(400).json({
-            ok: false,
-            errors
         });
     }
 
-    next();
 }
-
 
 const verificaToken = ( req, res, next ) => {
 
@@ -61,7 +38,6 @@ const verificaToken = ( req, res, next ) => {
 };
 
 module.exports = {
-    validateBody ,
-    validateBodyLogin,
+    validateBody,
     verificaToken
 }

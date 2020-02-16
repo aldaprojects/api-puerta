@@ -2,13 +2,15 @@
 
 ### Funciones
 
-#### Administrador
+#### Usuario
 
-- Dar llaves virtuales a usuarios
-- Invitar a usuarios a unirse a su grupo
-- Eliminar usuarios de un grupo
-- ...
+- NN Crear cuenta
+- NN Iniciar sesión
+- TK Modificar su nombre, username, password
+- TK Crear un grupo, automatico cambia a rol ADMIN_ROLE
 
 
+> NN -> no necesita token
+> TK -> necesita de un token para funcionar
 
 EN DESARROLLO ...

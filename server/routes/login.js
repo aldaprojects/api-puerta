@@ -4,7 +4,8 @@ const bcrypt = require('bcryptjs');
 const Usuario = require('../models/usuario');
 const jwt = require('jsonwebtoken');
 
-const { validateBody, validateBodyLogin } = require('../middlewares/generalValidators');
+const { validateBody } = require('../middlewares/generalValidators');
+const { validateBodyLogin } = require('../middlewares/usuarioValidators');
 
 app.post('/login', [validateBody, validateBodyLogin], (req, res) => {
 

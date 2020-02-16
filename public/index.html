@@ -52,7 +52,9 @@
                                 <h2 class="section-title">Usuario</h2>
                                 <div id="crear-cuenta"  class="section-block">
                                     <h3 class="block-title">Crear cuenta</h3>
-                                    <p>Se crea una cuenta con el rol 'USER_ROLE'</p>
+                                    <p>Se crea una cuenta con el rol 'USER_ROLE'.
+                                        No require un token para usar.
+                                    </p>
                                     
                                     <div class="row">
                                         <div>
@@ -114,9 +116,11 @@
 
 
                                 </div><!--//section-block-->
-                                <div id="crear-cuenta"  class="section-block">
+                                <div id="iniciar-sesion"  class="section-block">
                                     <h3 class="block-title">Iniciar sesión</h3>
-                                    <p>Es necesario tener una cuenta ya creada para usar este método. Este generará un token que deberá usar posteriormente.</p>
+                                    <p>Es necesario tener una cuenta ya creada para usar este método. 
+                                        Este generará un token que deberá usar posteriormente.
+                                        No requiere un token para usar.</p>
                                     
                                     <div class="row">
                                         <div>
@@ -130,6 +134,12 @@
                                                 <h6>URL</h6>
                                                 <ul class="list">
                                                     https://api-puerta.herokuapp.com/login
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Token</h6>
+                                                <ul class="list">
+                                                    No
                                                 </ul>
                                             </div>
                                             <div class="col-md-6 col-12">
@@ -176,6 +186,70 @@
 
 
                                 </div><!--//section-block-->
+                                <div id="actualizar-datos"  class="section-block">
+                                    <h3 class="block-title">Actualizar datos</h3>
+                                    <p>Puede actualizar el nombre, nombre de usuario y la contraseña.
+                                        Para usarse requiere enviar un body no vacio.
+                                        Se requiere un token para usar.
+                                    </p>
+                                    <div class="row">
+                                        <div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Metodo</h6>
+                                                <ul class="list">
+                                                    PUT
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/usuario?id=[id]
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    token
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    id
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    <li>email (opcional)</li>
+                                                    <li>name (opcional)</li>
+                                                    <li>password (opcional)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>En caso de un status 200 como respuesta, obtendrá el nuevo usuario:</p>
+                                            <pre><code class="language-javascript">
+{
+"ok": true,
+"usuario": {
+    "llave": false,
+    "role": "USER_ROLE",
+    "grupo": null,
+    "google": false,
+    "_id": EJEMPLO 5e48bc7b9c2efe3268c0ee9d,
+    "name": NOMBRE ACTUALIZADO,
+    "email": CORREO DEL USUARIO,
+    "username": USERNAME ACTUALIZADO,
+    "fecha_registro": EJEMPLO 2020-01-27T00:00:00.000Z
+}
+}
+                                            </code></pre>
+                                        </div>
+                                    </div>
+
+
+                                </div><!--//section-block-->
                             </section>
                             
     
@@ -189,6 +263,7 @@
                                     <nav class="doc-sub-menu nav flex-column">
                                         <a class="nav-link scrollto" href="#crear-cuenta">Crear cuenta</a>
                                         <a class="nav-link scrollto" href="#iniciar-sesion">Iniciar sesión</a>
+                                        <a class="nav-link scrollto" href="#actualizar-datos">Actualizar datos</a>
                                     </nav><!--//nav-->
 	                                
 	                            </nav><!--//doc-menu-->
