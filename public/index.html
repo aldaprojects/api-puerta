@@ -227,7 +227,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div>
+                                        <div>   
                                             <p>En caso de un status 200 como respuesta, obtendrá el nuevo usuario:</p>
                                             <pre><code class="language-javascript">
 {
@@ -246,9 +246,85 @@
 }
                                             </code></pre>
                                         </div>
-                                    </div>
+                                    </div> <!-- row -->
+                                </div><!--//section-block-->
+                                
+                            </section>
 
-
+                            <section id="grupo-section" class="doc-section"> 
+                                <h2 class="section-title">Grupo</h2>
+                                <div id="crear-grupo"  class="section-block">
+                                    <h3 class="block-title">Crear grupo</h3>
+                                    <p> Solo puede ser creado un grupo por usuario. 
+                                        Al crear el grupo, se cambiará el rol a 'ADMIN_ROLE', 
+                                        se asignará una llave al usuario y
+                                        se actualizará su grupo.
+                                        Se requiere un token para usar.
+                                    </p>
+                                    <div class="row">
+                                        <div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Metodo</h6>
+                                                <ul class="list">
+                                                    POST
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/grupo
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    token
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    <li>name</li>
+                                                    <li>id_admin (id del usuario que crea el grupo)</li>
+                                                    <li>fecha_creacion</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>   
+                                            <p>En caso de un status 200 como respuesta, obtendrá:</p>
+                                            <pre><code class="language-javascript">
+{
+    "ok": true,
+    "grupo": {
+        "integrantes": [],
+        "_id": EJEMPLO 5e49d1e664bcf30d8cbdfc26,
+        "name": NOMBRE DEL GRUPO,
+        "codigo": EJEMPLO ORKEK,
+        "admin": EJEMPLO 5e48bc7b9c2efe3268c0ee9d,
+        "fecha_creacion": EJEMPLO 2001-01-01T06:00:00.000Z,
+        "__v": 0
+    },
+    "admin": {
+        "llave": true,
+        "role": "ADMIN_ROLE",
+        "grupo": EJEMPLO 5e49d1e664bcf30d8cbdfc26,
+        "google": false,
+        "_id": EJEMPLO 5e48bc7b9c2efe3268c0ee9d,
+        "name": NOMBRE DEL CREADOR,
+        "email": CORREO DEL CREADOR,
+        "username": USERNAME DEL CREADOR,
+        "fecha_registro": EJEMPLO 2020-01-27T00:00:00.000Z
+    }
+}
+                                            </code></pre>
+                                        </div>
+                                    </div> <!-- row -->
                                 </div><!--//section-block-->
                             </section>
                             
@@ -264,6 +340,10 @@
                                         <a class="nav-link scrollto" href="#crear-cuenta">Crear cuenta</a>
                                         <a class="nav-link scrollto" href="#iniciar-sesion">Iniciar sesión</a>
                                         <a class="nav-link scrollto" href="#actualizar-datos">Actualizar datos</a>
+                                    </nav><!--//nav-->
+	                                <a class="nav-link scrollto" href="#grupo-section">Grupo</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#crear-grupo">Crear grupo</a>
                                     </nav><!--//nav-->
 	                                
 	                            </nav><!--//doc-menu-->

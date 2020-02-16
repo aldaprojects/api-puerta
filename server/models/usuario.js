@@ -17,7 +17,7 @@ let usuarioSchma = new Schema({
     fecha_registro: { type: Date, require: true },
     llave: { type: Boolean, default: false },
     role: { type: String, default: 'USER_ROLE', enum: rolesValidos },
-    grupo: { type: Object, default: null },
+    grupo: { type: Schema.Types.ObjectId, ref: 'grupo', default: null },
     google: { type: Boolean, default: false }
 });
 
