@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 
 const { validateBody, verificaToken } = require('../middlewares/generalValidators');
 
-app.get('/api/usuario', verificaToken, (req, res) => {
+app.get('/usuario', verificaToken, (req, res) => {
 
     Usuario.find({})
     .exec( (err, usuarios) => {
@@ -35,7 +35,7 @@ app.get('/api/usuario', verificaToken, (req, res) => {
     });
 });
 
-app.put('/api/usuario/:id', verificaToken ,(req, res) => {
+app.put('/usuario/:id', verificaToken ,(req, res) => {
 
     const id = req.params.id;
     const body = req.body;
@@ -111,7 +111,7 @@ app.delete('/usuario/:id', verificaToken, (req, res) => {
     });
 });
 
-app.post('/api/usuario', validateBody, (req, res) => {
+app.post('/usuario', validateBody, (req, res) => {
 
     let body = req.body;
 

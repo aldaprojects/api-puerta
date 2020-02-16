@@ -21,12 +21,7 @@ mongoose.connect('mongodb://localhost/sspca',
 );
 
 // Configuracion global de las rutas
-app.get('/usuario', (req, res) => {
-    res.status(200).json({
-        ok: true,
-        message: 'it works'
-    })
-});
+app.use( require('./routes/index') );
 
 app.listen(port, () => {
     console.log(`Servidor encendido correctamente con el puerto ${ port }`);

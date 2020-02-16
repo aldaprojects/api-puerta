@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const { validateBody, validateBodyLogin } = require('../middlewares/generalValidators');
 
-app.post('/api/login', [validateBody, validateBodyLogin], (req, res) => {
+app.post('/login', [validateBody, validateBodyLogin], (req, res) => {
 
     let body = req.body;
 

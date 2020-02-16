@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.post('/api/grupo', (req, res) => {
+app.post('/grupo', (req, res) => {
     
 });
 
