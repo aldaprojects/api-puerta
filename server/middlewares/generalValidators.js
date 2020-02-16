@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 let validateBody = ( req, res, next ) => {
 
     let body = req.body;
@@ -37,7 +39,29 @@ let validateBodyLogin = ( req, res, next ) => {
     next();
 }
 
+
+const verificaToken = ( req, res, next ) => {
+
+    const token = req.get('token')
+    
+    jwt.verify( token, 'seed', (err, decoded) => {
+        if( err ){
+            return res.status(401).json({
+                ok : false,
+                mensaje: 'Token incorrecto',
+                errors: err
+            })
+        }
+
+        req.usuario = decoded.usuario;
+
+        next();
+    })
+
+};
+
 module.exports = {
     validateBody ,
-    validateBodyLogin
+    validateBodyLogin,
+    verificaToken
 }

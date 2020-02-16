@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const port = process.env.PORT || 3000;
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -19,8 +21,8 @@ mongoose.connect('mongodb://localhost/sspca',
 );
 
 // Configuracion global de las rutas
-app.use( require('./routes/index') )
+app.use( require('./routes/index') );
 
-app.listen(3000, () => {
-    console.log('Servidor encendido correctamente con el puerto 3000');
-})
+app.listen(port, () => {
+    console.log(`Servidor encendido correctamente con el puerto ${ port }`);
+});

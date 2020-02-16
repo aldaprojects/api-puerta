@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bcrypt = require('bcryptjs');
 const Usuario = require('../models/usuario');
+const jwt = require('jsonwebtoken');
 
 const { validateBody, validateBodyLogin } = require('../middlewares/generalValidators');
 
@@ -35,9 +36,12 @@ app.post('/api/login', [validateBody, validateBodyLogin], (req, res) => {
             });
         }
 
+        const token = jwt.sign( { usuario }, 'seed', { expiresIn: '1h' });
+
         return res.status(200).json({
             ok: true,
-            usuario
+            usuario,
+            token
         });
     });
 
