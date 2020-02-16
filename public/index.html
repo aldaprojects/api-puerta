@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Documentación API SSCA</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">  
+      
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-primary">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">SSCA</span><span class="text-bold">Doc</span>
+                        </a>
+                    </h1>
+                    
+                </div><!--//branding-->        
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Documentación </h1>
+                    <div class="meta"><i class="far fa-clock"></i> Ultima actualización: 15 febrero 2020</div>
+                </div><!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            
+                            <section id="usuario-section" class="doc-section">
+                                <h2 class="section-title">Usuario</h2>
+                                <div id="crear-cuenta"  class="section-block">
+                                    <h3 class="block-title">Crear cuenta</h3>
+                                    <p>Se crea una cuenta con el rol 'USER_ROLE'</p>
+                                    
+                                    <div class="col-md-6 col-12">
+                                        <h6>Metodo</h6>
+                                        <ul class="list">
+                                            POST
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>URL</h6>
+                                        <ul class="list">
+                                            https://api-puerta.herokuapp.com/usuario
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Headers</h6>
+                                        <ul class="list">
+                                            Ninguno
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Params</h6>
+                                        <ul class="list">
+                                            Ninguno
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Body</h6>
+                                        <ul class="list">
+                                            <li>name</li>
+                                            <li>email</li>
+                                            <li>password</li>
+                                            <li>username</li>
+                                            <li>fecha_registro</li>
+                                        </ul>
+                                    </div>
+                                </div><!--//section-block-->
+                                <div id="iniciar-sesion"  class="section-block">
+                                    <h3 class="block-title">Iniciar sesión</h3>
+                                    <p>Es necesario tener una cuenta ya creada para usar este método</p>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Metodo</h6>
+                                        <ul class="list">
+                                            POST
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>URL</h6>
+                                        <ul class="list">
+                                            https://api-puerta.herokuapp.com/login
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Headers</h6>
+                                        <ul class="list">
+                                            Ninguno
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Params</h6>
+                                        <ul class="list">
+                                            Ninguno
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <h6>Body</h6>
+                                        <ul class="list">
+                                            <li>email</li>
+                                            <li>password</li>
+                                        </ul>
+                                    </div>
+                                </div><!--//section-block-->
+                            </section><!--//doc-section-->
+                            
+    
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+	                        
+	                            <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+	                                <a class="nav-link scrollto" href="#usuario-section">Usuario</a>
+                                    <nav class="doc-sub-menu nav flex-column">
+                                        <a class="nav-link scrollto" href="#crear-cuenta">Crear cuenta</a>
+                                        <a class="nav-link scrollto" href="#iniciar-sesion">Iniciar sesión</a>
+                                    </nav><!--//nav-->
+	                                
+	                            </nav><!--//doc-menu-->
+	                        
+                        </div>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->
+        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">No comercial -- Proyecto universidad</small>
+            
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
+    <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                             
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    
+</body>
+</html> 
+
