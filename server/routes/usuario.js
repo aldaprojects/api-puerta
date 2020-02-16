@@ -128,14 +128,16 @@ app.post('/usuario', validateBody, (req, res) => {
 
             console.log(err.errors.email);
 
-            if ( err.errors.email.name === 'ValidatorError' ) {
+            if ( err.errors.email.properties.type === 'user defined' ) {
+
+                console.log(err.errors.email.properties);
 
                 return res.status(400).json({
                     ok: false,
                     err: {
                         errors: {
                             email: {
-                                message: 'Caracteres invalidos en el correo'
+                                message: 'Debe introducir caracteres validos en el email'
                             }
                         }
                     }

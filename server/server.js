@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const path = require('path');
 
-const port = process.env.PORT || 3000;
+require('./config/config');
 
 app.use(express.static( path.resolve(__dirname, '../public') ));
 
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Conexion con la base de datos
-mongoose.connect('mongodb://localhost/sspca', 
+mongoose.connect(process.env.URL_DB, 
     {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, 
     function(err) {
         if( err ) throw err;
@@ -27,6 +27,6 @@ mongoose.connect('mongodb://localhost/sspca',
 // Configuracion global de las rutas
 app.use( require('./routes/index') );
 
-app.listen(port, () => {
-    console.log(`Servidor encendido correctamente con el puerto ${ port }`);
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor encendido correctamente con el puerto ${ process.env.PORT }`);
 });

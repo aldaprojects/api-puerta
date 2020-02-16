@@ -54,77 +54,129 @@
                                     <h3 class="block-title">Crear cuenta</h3>
                                     <p>Se crea una cuenta con el rol 'USER_ROLE'</p>
                                     
-                                    <div class="col-md-6 col-12">
-                                        <h6>Metodo</h6>
-                                        <ul class="list">
-                                            POST
-                                        </ul>
+                                    <div class="row">
+                                        <div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Metodo</h6>
+                                                <ul class="list">
+                                                    POST
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/usuario
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    <li>name</li>
+                                                    <li>email</li>
+                                                    <li>password</li>
+                                                    <li>username</li>
+                                                    <li>fecha_registro</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>En caso de un status 200 como respuesta, obtendrá:</p>
+                                            <pre><code class="language-javascript">
+{
+    "ok": true,
+    "usuario": {
+        "llave": false,
+        "role": "USER_ROLE",
+        "grupo": null,
+        "google": false,
+        "_id": EJEMPLO 5e48aad9b1f6d529a8ec382b,
+        "name": EL NOMBRE DEL USUARIO,
+        "email": EL CORREO DEL USUARIO,
+        "username": EL USERNAME DEL USUARIO,
+        "fecha_registro": EJEMPLO: 2020-01-27T00:00:00.000Z
+    }
+}
+                                            </code></pre>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>URL</h6>
-                                        <ul class="list">
-                                            https://api-puerta.herokuapp.com/usuario
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>Headers</h6>
-                                        <ul class="list">
-                                            Ninguno
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>Params</h6>
-                                        <ul class="list">
-                                            Ninguno
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>Body</h6>
-                                        <ul class="list">
-                                            <li>name</li>
-                                            <li>email</li>
-                                            <li>password</li>
-                                            <li>username</li>
-                                            <li>fecha_registro</li>
-                                        </ul>
-                                    </div>
+
+
                                 </div><!--//section-block-->
-                                <div id="iniciar-sesion"  class="section-block">
+                                <div id="crear-cuenta"  class="section-block">
                                     <h3 class="block-title">Iniciar sesión</h3>
-                                    <p>Es necesario tener una cuenta ya creada para usar este método</p>
-                                    <div class="col-md-6 col-12">
-                                        <h6>Metodo</h6>
-                                        <ul class="list">
-                                            POST
-                                        </ul>
+                                    <p>Es necesario tener una cuenta ya creada para usar este método. Este generará un token que deberá usar posteriormente.</p>
+                                    
+                                    <div class="row">
+                                        <div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Metodo</h6>
+                                                <ul class="list">
+                                                    POST
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/login
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    <li>email</li>
+                                                    <li>password</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p>En caso de un status 200 como respuesta, obtendrá:</p>
+                                            <pre><code class="language-javascript">
+{
+    "ok": true,
+    "usuario": {
+        "llave": false,
+        "role": "USER_ROLE",
+        "grupo": null,
+        "google": false,
+        "_id": EJEMPLO 5e48aad9b1f6d529a8ec382b,
+        "name": EL NOMBRE DEL USUARIO,
+        "email": EL CORREO DEL USUARIO,
+        "username": EL USERNAME DEL USUARIO,
+        "fecha_registro": EJEMPLO 2020-01-27T00:00:00.000Z
+    },
+    "token": TOKEN
+}
+                                            </code></pre>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>URL</h6>
-                                        <ul class="list">
-                                            https://api-puerta.herokuapp.com/login
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>Headers</h6>
-                                        <ul class="list">
-                                            Ninguno
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>Params</h6>
-                                        <ul class="list">
-                                            Ninguno
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <h6>Body</h6>
-                                        <ul class="list">
-                                            <li>email</li>
-                                            <li>password</li>
-                                        </ul>
-                                    </div>
+
+
                                 </div><!--//section-block-->
-                            </section><!--//doc-section-->
+                            </section>
                             
     
                         </div><!--//content-inner-->
