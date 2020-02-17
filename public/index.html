@@ -392,6 +392,66 @@
                                         </div>
                                     </div> <!-- row -->
                                 </div><!--//section-block-->
+                                <div id="actualizar-grupo"  class="section-block">
+                                    <h3 class="block-title">Actualizar datos</h3>
+                                    <p> Actualiza el nombre del grupo.
+                                        Se requiere tener role 'ADMIN_ROLE'.
+                                        Se requiere un token para usar.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="col-md-6 col-12">
+                                                <h6>Método</h6>
+                                                <ul class="list">
+                                                    PUT
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/grupo?id=[idIntegrante]
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    token
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    id
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    <li>name</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col">   
+                                            <p>En caso de un status 200 como respuesta, obtendrá:</p>
+                                            <pre><code class="language-javascript">
+{
+    "ok": true,
+    "grupo": {
+        "integrantes": 
+            ARREGLO DE OBJETOS
+        ,
+        "_id": EJEMPLO 5e49e37c80c93434a8317411,
+        "name": NOMBRE DEL GRUPO ACTUALIZADO,
+        "codigo": CODIGO DEL GRUPO,
+        "admin": EJEMPLO 5e48bc7b9c2efe3268c0ee9d,
+        "fecha_creacion": EJEMPLO 2001-01-01T06:00:00.000Z,
+        "__v": 0
+    }
+}
+                                            </code></pre>
+                                        </div>
+                                    </div> <!-- row -->
+                                </div><!--//section-block-->
                             </section>
                             
     
@@ -411,6 +471,7 @@
                                     <nav class="doc-sub-menu nav flex-column">
                                         <a class="nav-link scrollto" href="#crear-grupo">Crear grupo</a>
                                         <a class="nav-link scrollto" href="#agregar-integrante">Agregar integrante</a>
+                                        <a class="nav-link scrollto" href="#actualizar-grupo">Actualizar datos</a>
                                     </nav><!--//nav-->
 	                                
 	                            </nav><!--//doc-menu-->

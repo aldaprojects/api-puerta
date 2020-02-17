@@ -4,6 +4,8 @@ const Grupo = require('../models/grupo');
 const Usuario = require('../models/usuario');
 const bycript = require('bcryptjs');
 
+const _ = require('underscore');
+
 const { validateBody, verificaToken, verificaAdminRole } = require('../middlewares/generalValidators');
 const { validateIdParams } = require('../middlewares/grupoValidators');
 
@@ -104,6 +106,27 @@ app.put('/grupo/:id/integrante', [verificaToken, verificaAdminRole, validateIdPa
         });
     });
 
+});
+
+app.put('/grupo', [verificaToken, verificaAdminRole, validateIdParams],(req, res) => {
+
+    const id = req.query.id;
+
+    const body = _.pick(req.body, ['name']); 
+
+    Grupo.findByIdAndUpdate(id, {name: body.name}, {new: true}, (err, grupo) => {
+        if ( err ) {
+            return res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+
+        return res.status(200).json({
+            ok: true,
+            grupo
+        });
+    });
 });
 
 module.exports = app;
