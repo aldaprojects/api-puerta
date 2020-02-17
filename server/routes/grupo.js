@@ -4,7 +4,8 @@ const Grupo = require('../models/grupo');
 const Usuario = require('../models/usuario');
 const bycript = require('bcryptjs');
 
-const { validateBody, verificaToken } = require('../middlewares/generalValidators');
+const { validateBody, verificaToken, verificaAdminRole } = require('../middlewares/generalValidators');
+const { validateIdParams } = require('../middlewares/grupoValidators');
 
 app.post('/grupo', [verificaToken, validateBody], (req, res) => {
     
@@ -46,6 +47,62 @@ app.post('/grupo', [verificaToken, validateBody], (req, res) => {
         });
 
     })
+
+});
+
+app.put('/grupo/:id/integrante', [verificaToken, verificaAdminRole, validateIdParams], (req, res) => {
+
+    const id = req.params.id;
+    const id_integrante = req.query.id;
+
+    Grupo.findById(id, (err, grupo) => {
+
+        let integrantes = grupo.integrantes;
+
+        Usuario.findById(id_integrante, (err, usuario) => {
+            if ( err ) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                });
+            }
+
+            if ( !usuario ) {
+                return res.status(404).json({
+                    ok: false,
+                    err:{
+                        errors:{
+                            message: 'El usuario que desea agregar no existe'
+                        }
+                    }
+                });
+            }
+
+            let integrante = {
+                _id: usuario._id,
+                llave: usuario.llave,
+                name: usuario.name,
+                email: usuario.email,
+                username: usuario.username
+            };
+            
+            integrantes.push(integrante);
+            
+            Grupo.findByIdAndUpdate(id, { integrantes }, { new: true }, (err, newGrupo) => {
+                if ( err ){
+                    return res.status(500).json({
+                        ok: false,
+                        err
+                    });
+                }
+    
+                return res.json({
+                    ok: true,
+                    grupo: newGrupo
+                });
+            });
+        });
+    });
 
 });
 

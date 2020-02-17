@@ -57,7 +57,7 @@
                                     </p>
                                     
                                     <div class="row">
-                                        <div>
+                                        <div class="col">
                                             <div class="col-md-6 col-12">
                                                 <h6>Metodo</h6>
                                                 <ul class="list">
@@ -93,7 +93,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div>
+                                        <div class="col">
                                             <p>En caso de un status 200 como respuesta, obtendrá:</p>
                                             <pre><code class="language-javascript">
 {
@@ -123,7 +123,7 @@
                                         No requiere un token para usar.</p>
                                     
                                     <div class="row">
-                                        <div>
+                                        <div class="col">
                                             <div class="col-md-6 col-12">
                                                 <h6>Metodo</h6>
                                                 <ul class="list">
@@ -162,7 +162,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div>
+                                        <div class="col">
                                             <p>En caso de un status 200 como respuesta, obtendrá:</p>
                                             <pre><code class="language-javascript">
 {
@@ -193,7 +193,7 @@
                                         Se requiere un token para usar.
                                     </p>
                                     <div class="row">
-                                        <div>
+                                        <div class="col">
                                             <div class="col-md-6 col-12">
                                                 <h6>Metodo</h6>
                                                 <ul class="list">
@@ -227,7 +227,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div>   
+                                        <div class="col">   
                                             <p>En caso de un status 200 como respuesta, obtendrá el nuevo usuario:</p>
                                             <pre><code class="language-javascript">
 {
@@ -262,7 +262,7 @@
                                         Se requiere un token para usar.
                                     </p>
                                     <div class="row">
-                                        <div>
+                                        <div class="col">
                                             <div class="col-md-6 col-12">
                                                 <h6>Metodo</h6>
                                                 <ul class="list">
@@ -296,7 +296,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div>   
+                                        <div class="col">   
                                             <p>En caso de un status 200 como respuesta, obtendrá:</p>
                                             <pre><code class="language-javascript">
 {
@@ -326,6 +326,72 @@
                                         </div>
                                     </div> <!-- row -->
                                 </div><!--//section-block-->
+                                <div id="agregar-integrante"  class="section-block">
+                                    <h3 class="block-title">Agregar integrante</h3>
+                                    <p> Actualiza el Array de un grupo.
+                                        Se requiere tener role 'ADMIN_ROLE'.
+                                        Se requiere un token para usar.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="col-md-6 col-12">
+                                                <h6>Método</h6>
+                                                <ul class="list">
+                                                    PUT
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/grupo/[idGrupo]<br>/integrante?id=[idIntegrante]
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    token
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    id
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col">   
+                                            <p>En caso de un status 200 como respuesta, obtendrá:</p>
+                                            <pre><code class="language-javascript">
+{
+    "ok": true,
+    "grupo": {
+        "integrantes": [
+            {
+                "_id": EJEMPLO 5e499cbc153539306864c3b7,
+                "llave": false,
+                "name": NOMBRE INTEGRANTE,
+                "email": EMAIL INTEGRANTE,
+                "username": USERNAME INTEGRANTE
+            }
+        ],
+        "_id": EJEMPLO 5e49e37c80c93434a8317411,
+        "name": NOMBRE DEL GRUPO,
+        "codigo": CODIGO DEL GRUPO,
+        "admin": EJEMPLO 5e48bc7b9c2efe3268c0ee9d,
+        "fecha_creacion": EJEMPLO 2001-01-01T06:00:00.000Z,
+        "__v": 0
+    }
+}
+                                            </code></pre>
+                                        </div>
+                                    </div> <!-- row -->
+                                </div><!--//section-block-->
                             </section>
                             
     
@@ -344,6 +410,7 @@
 	                                <a class="nav-link scrollto" href="#grupo-section">Grupo</a>
                                     <nav class="doc-sub-menu nav flex-column">
                                         <a class="nav-link scrollto" href="#crear-grupo">Crear grupo</a>
+                                        <a class="nav-link scrollto" href="#agregar-integrante">Agregar integrante</a>
                                     </nav><!--//nav-->
 	                                
 	                            </nav><!--//doc-menu-->
