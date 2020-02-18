@@ -6,8 +6,7 @@ const bycript = require('bcryptjs');
 
 const _ = require('underscore');
 
-const { validateBody, verificaToken, verificaAdminRole } = require('../middlewares/generalValidators');
-const { validateIdParams } = require('../middlewares/grupoValidators');
+const { validateBody, verificaToken, verificaAdminRole, validateIdParams } = require('../middlewares/generalValidators');
 
 app.post('/grupo', [verificaToken, validateBody], (req, res) => {
     
