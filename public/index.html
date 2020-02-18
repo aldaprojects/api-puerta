@@ -452,6 +452,70 @@
                                         </div>
                                     </div> <!-- row -->
                                 </div><!--//section-block-->
+                                <div id="obtener-integrantes"  class="section-block">
+                                    <h3 class="block-title">Obtener integrantes</h3>
+                                    <p> Obtiene un arreglo con los integrantes de un grupo en particular.
+                                        Se requiere un token para usar.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="col-md-6 col-12">
+                                                <h6>Método</h6>
+                                                <ul class="list">
+                                                    GET
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/grupo/integrantes?id=[ID]
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    token
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    id
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col">   
+                                            <p>En caso de un status 200 como respuesta, obtendrá:</p>
+                                            <pre><code class="language-javascript">
+{
+    "ok": true,
+    "integrantes": [
+        {
+            "_id": EJEMPLO 5e499cbc153539306864c3b7,
+            "llave": false,
+            "name": NOMBRE 1,
+            "email": CORREO1,
+            "username": USERNAME 1
+        },
+        {
+            "_id": EJEMPLO 5e499cbc153539306864c3b7,
+            "llave": false,
+            "name": NOMBRE 2,
+            "email": CORREO2,
+            "username": USERNAME2
+        }
+    ]
+}
+                                            </code></pre>
+                                        </div>
+                                    </div> <!-- row -->
+                                </div><!--//section-block-->
                             </section>
                             
     
@@ -472,6 +536,7 @@
                                         <a class="nav-link scrollto" href="#crear-grupo">Crear grupo</a>
                                         <a class="nav-link scrollto" href="#agregar-integrante">Agregar integrante</a>
                                         <a class="nav-link scrollto" href="#actualizar-grupo">Actualizar datos</a>
+                                        <a class="nav-link scrollto" href="#obtener-integrantes">Obtener integrantes</a>
                                     </nav><!--//nav-->
 	                                
 	                            </nav><!--//doc-menu-->

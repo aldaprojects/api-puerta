@@ -129,4 +129,36 @@ app.put('/grupo', [verificaToken, verificaAdminRole, validateIdParams],(req, res
     });
 });
 
+app.get('/grupo/integrantes', [verificaToken, validateIdParams], (req, res) => {
+
+    const id = req.query.id;
+
+    Grupo.findById(id, (err, grupo) => {
+        if ( err ) {
+            return res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+
+        if ( !grupo ) {
+            return res.status(404).json({
+                ok: false,
+                err: {
+                    errors : {
+                        message: `El grupo con el id ${ id } no existe.`
+                    }
+                }
+            });
+        }
+
+        return res.status(200).json({
+            ok: true,
+            integrantes: grupo.integrantes
+        });
+    });
+
+});
+
 module.exports = app;
+
