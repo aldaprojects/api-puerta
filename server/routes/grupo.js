@@ -15,7 +15,7 @@ app.post('/grupo', [verificaToken, validateBody], (req, res) => {
     const grupo = new Grupo({
         name: body.name,
         codigo: bycript.hashSync(body.name, 10).substr(55, 5).toUpperCase(),
-        admin: body.id_admin,
+        admin: req.usuario._id,
         fecha_creacion: body.fecha_creacion
     });
 
@@ -33,7 +33,7 @@ app.post('/grupo', [verificaToken, validateBody], (req, res) => {
             grupo: grupo._id
         }
 
-        Usuario.findByIdAndUpdate(body.id_admin, nuevoUsuario,{ new: true } ,(err, usuario) => {
+        Usuario.findByIdAndUpdate(req.usuario._id, nuevoUsuario,{ new: true } ,(err, usuario) => {
             if ( err ) {
                 return res.status(500).json({
                     ok: false,
@@ -155,6 +155,73 @@ app.get('/grupo/integrantes', [verificaToken, validateIdParams], (req, res) => {
             ok: true,
             integrantes: grupo.integrantes
         });
+    });
+
+});
+
+app.delete('/grupo/:id/integrantes', [verificaToken, verificaAdminRole, validateIdParams], (req, res) => {
+
+    const id_grupo = req.params.id;
+    const id_integrante = req.query.id;
+
+    Grupo.findById(id_grupo, (err, grupo) => {
+
+        if ( err ) {
+            return res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+
+        if ( !grupo ) {
+            return res.status(404).json({
+                ok: false,
+                err: {
+                    errors: {
+                        message: `El grupo con el id ${ id_grupo } no existe.`
+                    }
+                }
+            });
+        }
+
+        let integrantes = grupo.integrantes;
+
+        let encontro = false;
+
+        for (let i = 0; i < integrantes.length; i++) {
+            if ( integrantes[i]._id == id_integrante ) {
+                encontro = true;
+                integrantes.splice(i, 1);
+            }
+        }
+
+        if ( !encontro ){
+            return res.status(404).json({
+                ok: false,
+                err: {
+                    errors: {
+                        message: `El usuario con el id ${ id_integrante } no existe.`
+                    }
+                }
+            });
+        } else {
+            grupo.integrantes = integrantes;
+
+            grupo.save( (err, grupo ) => {
+                if ( err ) {
+                    return res.status(500).json({
+                        ok: false,
+                        err
+                    });
+                }
+
+                return res.status(200).json({
+                    ok: true,
+                    grupo
+                });
+            });
+        }
+
     });
 
 });

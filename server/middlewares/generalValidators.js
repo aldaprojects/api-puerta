@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const Usuario = require('../models/usuario');
 
 let validateBody = ( req, res, next ) => {
 
@@ -44,14 +45,30 @@ let verificaAdminRole = (req, res, next) => {
     if ( usuario.role === 'ADMIN_ROLE' ) {
         next();
     } else {
-        res.status(401).json({
-            ok: false,
-            err: {
-                errors: {
-                    message: 'Necesita ser administrador'
-                }
+
+        Usuario.findById(usuario._id, (err, usuarioDB) => {
+            if ( err ) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                });
+            }
+
+            if ( usuarioDB.role === 'ADMIN_ROLE' ) {
+                next();
+            } else {
+                return res.status(401).json({
+                    ok: false,
+                    err: {
+                        errors: {
+                            message: 'Necesita ser administrador'
+                        }
+                    }
+                });
+
             }
         });
+
     }
 
 }

@@ -350,7 +350,6 @@
                                                 <h6>Body</h6>
                                                 <ul class="list">
                                                     <li>name</li>
-                                                    <li>id_admin (id del usuario que crea el grupo)</li>
                                                     <li>fecha_creacion</li>
                                                 </ul>
                                             </div>
@@ -575,6 +574,76 @@
                                         </div>
                                     </div> <!-- row -->
                                 </div><!--//section-block-->
+                                <div id="eliminar-integrante"  class="section-block">
+                                    <h3 class="block-title">Eliminar integrantes</h3>
+                                    <p> Se requiere tener rol 'ADMIN_ROLE'.
+                                        Se requiere un token para usar.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="col-md-6 col-12">
+                                                <h6>Metodo</h6>
+                                                <ul class="list">
+                                                    DELETE
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>URL</h6>
+                                                <ul class="list">
+                                                    https://api-puerta.herokuapp.com/grupo/[idGrupo]<br>/integrante?id=[idIntegrante]
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Headers</h6>
+                                                <ul class="list">
+                                                    token
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Params</h6>
+                                                <ul class="list">
+                                                    id
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <h6>Body</h6>
+                                                <ul class="list">
+                                                    Ninguno
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col">   
+                                            <p>En caso de un status 200 como respuesta, obtendrá:</p>
+                                            <pre><code class="language-javascript">
+{
+    "ok": true,
+    "grupo": {
+        "integrantes": [
+            NUEVOS INTEGRANTES
+        ],
+        "_id": EJEMPLO 5e49d1e664bcf30d8cbdfc26,
+        "name": NOMBRE DEL GRUPO,
+        "codigo": EJEMPLO ORKEK,
+        "admin": EJEMPLO 5e48bc7b9c2efe3268c0ee9d,
+        "fecha_creacion": EJEMPLO 2001-01-01T06:00:00.000Z,
+        "__v": 0
+    },
+    "admin": {
+        "llave": true,
+        "role": "ADMIN_ROLE",
+        "grupo": EJEMPLO 5e49d1e664bcf30d8cbdfc26,
+        "google": false,
+        "_id": EJEMPLO 5e48bc7b9c2efe3268c0ee9d,
+        "name": NOMBRE DEL CREADOR,
+        "email": CORREO DEL CREADOR,
+        "username": USERNAME DEL CREADOR,
+        "fecha_registro": EJEMPLO 2020-01-27T00:00:00.000Z
+    }
+}
+                                            </code></pre>
+                                        </div>
+                                    </div> <!-- row -->
+                                </div><!--//section-block-->
 
                             </section>
                             
@@ -598,6 +667,7 @@
                                         <a class="nav-link scrollto" href="#agregar-integrante">Agregar integrante</a>
                                         <a class="nav-link scrollto" href="#actualizar-grupo">Actualizar datos</a>
                                         <a class="nav-link scrollto" href="#obtener-integrantes">Obtener integrantes</a>
+                                        <a class="nav-link scrollto" href="#eliminar-integrante">Eliminar integrantes</a>
                                     </nav><!--//nav-->
 	                                
 	                            </nav><!--//doc-menu-->
