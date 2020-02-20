@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bcrypt = require('bcryptjs');
 const Usuario = require('../models/usuario');
+const Grupo = require('../models/grupo');
 const jwt = require('jsonwebtoken');
 
 const { validateBody } = require('../middlewares/generalValidators');
@@ -39,11 +40,33 @@ app.post('/login', [validateBody, validateBodyLogin], (req, res) => {
 
         const token = jwt.sign( { usuario }, 'seed', { expiresIn: '1h' });
 
-        return res.status(200).json({
-            ok: true,
-            usuario,
-            token
-        });
+        if ( usuario.grupo != null ) {
+            Grupo.findById(usuario.grupo, (err, grupoDB) => {
+                if ( err ) {
+                    return res.status(500).json({
+                        ok: false,
+                        err
+                    });
+                }
+
+                usuario.grupo = grupoDB;
+
+                return res.status(200).json({
+                    ok: true,
+                    usuario,
+                    token
+                });
+
+            });
+        } else {
+            return res.status(200).json({
+                ok: true,
+                usuario,
+                token
+            });
+        }
+
+        
     });
 
 });
