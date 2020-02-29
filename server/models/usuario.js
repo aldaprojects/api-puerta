@@ -31,7 +31,7 @@ usuarioSchma.methods.toJSON = function() {
     return userObject
 };
 
-usuarioSchma.plugin( uniqueValidator, { message: '{PATH} debe de ser único' } );
+usuarioSchma.plugin( uniqueValidator, { message: 'El correo ya está en uso.' } );
 
 module.exports = mongoose.model( 'usuario', usuarioSchma );
 

@@ -48,9 +48,7 @@ app.post('/usuario', [validateBody, validateCrearCuenta], (req, res) => {
                     ok: false,
                     err: {
                         errors: {
-                            email: {
-                                message: 'Debe introducir caracteres validos en el email'
-                            }
+                            message: 'El correo no es válido.'
                         }
                     }
                 });
