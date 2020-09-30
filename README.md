@@ -1,16 +1,15 @@
-## API para Sistema de Seguridad para el Control de Acceso a una habitación
+## This projects was made for a college project...
 
-### Funciones
+**REST API** for "Sistema de Seguridad para el Control de Acceso"
 
-#### Usuario
+REST API builded with **NodeJS**
 
-- NN Crear cuenta
-- NN Iniciar sesión
-- TK Modificar su nombre, username, password
-- TK Crear un grupo, automatico cambia a rol ADMIN_ROLE
+## It incluides:
+- create account
+- sign up
+- sign in
+- modify account like name, username, password
+- create a group for users
+- roles -> ADMIN_ROLE and USER_ROLE
 
-
-> NN -> no necesita token
-> TK -> necesita de un token para funcionar
-
-EN DESARROLLO ...
+Also it contains __JWT__ for authentication
